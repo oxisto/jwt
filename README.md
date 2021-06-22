@@ -9,7 +9,7 @@ A [go](http://www.golang.org) (or 'golang' for search engine friendliness) imple
 
 Future releases will be using the `github.com/golang-jwt/jwt` import path and continue the existing versioning scheme of `v3.x.x+incompatible`. Backwards-compatible patches and fixes will be done on the `v3` release branch, where as new build-breaking features will be developed in a `v4` release, possibly including a SIV-style import path.
 
-**SECURITY NOTICE:** Some older versions of Go have a security issue in the crypto/elliptic. Recommendation is to upgrade to at least 1.15 See issue [dgrijalva/jwt-go#216](https://github.com/dgrijalva/jwt-go/issues/216) for more detail.
+**SECURITY NOTICE:** Some older versions of Go have a security issue in the crypto/elliptic. Recommendation is to upgrade to at least 1.15. See issue [dgrijalva/jwt-go#216](https://github.com/dgrijalva/jwt-go/issues/216) for more detail.
 
 **SECURITY NOTICE:** It's important that you [validate the `alg` presented is what you expect](https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/). This library attempts to make it easy to do the right thing by requiring key types match the expected alg, but you should take the extra step to verify it in your usage.  See the examples provided.
 
@@ -91,6 +91,7 @@ Each signing method expects a different object type for its signing keys. See th
 * The [HMAC signing method](https://pkg.go.dev/github.com/golang-jwt/jwt#SigningMethodHMAC) (`HS256`,`HS384`,`HS512`) expect `[]byte` values for signing and validation
 * The [RSA signing method](https://pkg.go.dev/github.com/golang-jwt/jwt#SigningMethodRSA) (`RS256`,`RS384`,`RS512`) expect `*rsa.PrivateKey` for signing and `*rsa.PublicKey` for validation
 * The [ECDSA signing method](https://pkg.go.dev/github.com/golang-jwt/jwt#SigningMethodECDSA) (`ES256`,`ES384`,`ES512`) expect `*ecdsa.PrivateKey` for signing and `*ecdsa.PublicKey` for validation
+* The [EdDSA signing method](https://pkg.go.dev/github.com/golang-jwt/jwt#SigningMethodEdDSA) (`EdDSA`) expect `*ed25519.PrivateKey` for signing and `*ed25519.PublicKey` for validation
 
 ### JWT and OAuth
 
